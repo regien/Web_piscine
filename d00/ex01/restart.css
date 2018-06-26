@@ -1,0 +1,18 @@
+
+.container {
+    display: table;
+    width: 100%;
+}
+
+.item {
+    background-color: pink;
+}
+
+.panelone {
+    float: left;
+    width: 5.5556%;
+}
+
+.paneltwo {
+    
+}

@@ -1,7 +1,39 @@
+.head {
+    height: 1fr;
+    width: 100%;
+    margin: auto;
+}
+
+.head-content > div {
+    display: inline-block;
+    vertical-align: middle;
+    text-align: center;
+    clear: none;
+}
+
+.title-head > h1 {
+    font-family: 'Galada', cursive;
+}
+
+/*
+.image-title {
+    display: inline-block;
+}
+*/
+.image-title > img {
+    width: 60px;
+    height: 60px;
+}
+
+/*
+** ACTUAL PERIODIC TABLE
+** 34 because the periodic table is 32 block of lenghts
+*/
+
 .wrapper {
     display: grid;
     /* grid-template-columns: 1fr 1fr 1fr; */
-    grid-template-columns: repeat(6, 1fr);
+    grid-template-columns: repeat(16, 1fr);
     /*
     grid-column-gap: 1em;
     grid-row-gap: 1em;
