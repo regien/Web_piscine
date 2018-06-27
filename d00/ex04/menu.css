@@ -1,0 +1,50 @@
+.nav-class > ul{
+    background-color: grey;
+    color: white;
+    font-size: 20px;
+    font-family: sans-serif;
+}
+
+.nav-class > ul > li {
+    list-style-type: none;
+    display: inline-block;
+    padding: 5px 25px 5px 25px;
+    position: relative;
+}
+
+.nav-class > ul > li:hover {
+    background-color: pink;
+    
+}
+
+ul.sub-class {
+    position: absolute;
+    background-color: green;
+    list-style-type: none;
+    width: 125px;
+    margin-top:5px;
+    margin-left:-25px;
+    width:125px;
+    padding-left:0px;
+    opacity:0;
+}
+
+ul.sub-class li {
+    padding-left: 25px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+ul.sub-class li:hover {
+    color: white;
+    background-color: greenyellow; 
+}
+
+.nav-class li:hover {
+    color: white;
+}
+
+.nav-class li:hover .sub-class{
+    opacity: 1;
+    z-index: 1;
+}
