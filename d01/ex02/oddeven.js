@@ -1,22 +1,41 @@
-var	readline = require('readline');
 
-var	rl = readline.createInterface({
-	input: process.stdin,
-	output: process.stdout
-});
+function	check_for_chars(str) {
+	var		i;
+	var		len;
 
-var recursive_function_solved = () => {
-rl.question('>>tacoshell:', function(answer) {
-	if (isNaN(parseInt(answer)))
-		console.log(answer + " is not a number");
-	else if (parseInt(answer) % 2 === 0)
-		console.log("The number " + answer + " is Even");
-	else
-		console.log("The number " + answer + " is Odd");
-	recursive_function_solved();
-})};
+	i = -1;
+	len = str.toString().length;
+	while (++i < len)
+	{
+		if (str[i] < '0' || str[i] > '9')
+			return (0);
+	}
+	return (1);
+}
 
-recursive_function_solved();
+function	display_prompt() {
+	process.stdout.write('Enter something: ');
+}
 
+/*
+** trim just remove whitespaces
+*/
 
+process.stdin.on('data', function(data) {
+	const	buffer = data.toString().trim();
 
+	if (check_for_chars(buffer) === 0 || isNaN(parseInt(buffer)))
+		process.stdout.write("'" + buffer + "' is not a number");
+	else if (buffer === 'EOF') {
+		process.stdout.write('\n');
+		process.exit();
+	}
+	else if (parseInt(buffer) % 2 === 0)
+		process.stdout.write("The number " + buffer + " is Even");
+	else if (parseInt(buffer) % 2 === 1)
+		process.stdout.write("The number " + buffer + " is Odd");
+	process.stdout.write('\n');
+	display_prompt();
+})
+
+display_prompt();
