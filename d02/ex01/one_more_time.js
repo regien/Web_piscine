@@ -1,5 +1,30 @@
 let args = process.argv;
 
+let	Meses = [
+	"ajanvier",
+	"février",
+	"mars",
+	"avril",
+	"mai",
+	"juin",
+	"juillet",
+	"août",
+	"septembre",
+	"octobre",
+	"novembre",
+	"décembre"
+]
+
+let	dias [
+	"lundi",
+	"mardi",
+	"mercredi",
+	"jeudi",
+	"vendredi",
+	"samedi",
+	"dimanche"
+]
+
 function	ft_split(str) {
 
 	let		len;
@@ -32,7 +57,7 @@ function	ft_split(str) {
 };
 
 //		WORKING
-function count_island_spaces(str) {
+function	count_island_spaces(str) {
 	let		i;
 	let		island = 0;
 	let		gaps = 0;
@@ -64,6 +89,40 @@ function count_island_spaces(str) {
 	else
 		return (0);
 }
+
+/*
+function	match_value_in_array {
+}
+*/
+
+/*
+** You are suppossed to pass an array here, dont make it protected because it doesnt
+** worht it
+*/
+
+function	match_items(holder) {
+	let		day; // array
+	let		n_day; // int
+	let		month; // array
+	let		year; //int
+	let		time; // parse, .split(':') and it should give 3 ints
+
+	day = dias.find(function(element) {
+		if (holder[0] === element)
+			return (element)
+	});
+	if (day === "undefined")
+		return (0);
+	n_day = parseInt(holder[i]);
+	if (isNaN(n_day) || n_day < 0 || n_day > 31))
+		return (0);
+	month = meses.find(function(element) {
+		if (holder[2] === element)
+			return (element);
+	});
+	
+}
+
 
 if (args.length != 3)
 	process.exit();
