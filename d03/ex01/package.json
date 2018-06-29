@@ -1,0 +1,15 @@
+{
+  "name": "php_info",
+  "version": "1.0.0",
+  "description": "replicating php_info",
+  "main": "phpinfo.js",
+  "dependencies": {},
+  "devDependencies": {
+    "nodejs-info": "^1.1.1"
+  },
+  "scripts": {
+    "test": "node phpinfo.js"
+  },
+  "author": "gmalpart",
+  "license": "ISC"
+}
