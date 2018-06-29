@@ -1,4 +1,3 @@
-const	spawn = require('child_process').spawn;
 let	fs = require('fs');
 let	args = process.argv;
 
@@ -43,18 +42,12 @@ process.stdin.on('data', function(data) {
 	const	buffer = data.toString().trim();
 	let		process;
 
-//	if (check_for_chars(buffer) === 0 || isNaN(parseInt(buffer)))
-//		process.stdout.write("'" + buffer + "' is not a number");
 	if (buffer === 'EOF') {
 		process.stdout.write('\n');
 		process.exit();
 	}
 	if (eval(buffer) == "undefined")
 		;
-/*	else if (parseInt(buffer) % 2 === 0)
-		process.stdout.write("The number " + buffer + " is Even");
-	else if (parseInt(buffer) % 2 === 1)
-		process.stdout.write("The number " + buffer + " is Odd");*/
 	display_prompt();
 })
 
@@ -79,13 +72,11 @@ if (args.length != 4)
 var	data = fs.readFileSync(args[2].toString());
 var	default_word = args[3].trim();
 var	holder = [];
-// remmber that you need to take care of the 4 argument which is basically the line that you are primarily reading
 
 if (!match_my_keyword(default_word)) {
 	process.stdout.write("Bad keyword\n");
 	process.exit();
 }
-	
 data = data.toString().split('\n');
 data = cleanArray(data);
 
@@ -93,8 +84,5 @@ if ((split_file(data, holder)) == 0) {
 	process.stdout.write("Error in the file\n");
 	process.exit();
 }
-console.log(holder);
-
-console.log(data);
 
 display_prompt();
