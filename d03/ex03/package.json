@@ -1,0 +1,16 @@
+{
+  "name": "ex03",
+  "version": "1.0.0",
+  "description": "cookies",
+  "main": "cookie_crisp.js",
+  "scripts": {
+    "test": "node cookie_crisp.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "connect": "^3.6.6",
+    "cookie-parser": "^1.4.3",
+    "express": "^4.16.3"
+  }
+}

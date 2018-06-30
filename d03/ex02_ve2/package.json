@@ -1,0 +1,14 @@
+{
+  "name": "ex02_ve2",
+  "version": "1.0.0",
+  "description": "the usage of express is justify because its pamp but for this thing",
+  "main": "print_get.js",
+  "scripts": {
+    "test": "node print_get.js"
+  },
+  "author": "gmalpart",
+  "license": "ISC",
+  "devDependencies": {
+    "express": "^4.16.3"
+  }
+}
