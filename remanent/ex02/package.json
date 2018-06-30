@@ -1,7 +1,7 @@
 {
-  "name": "ex02_ve2",
+  "name": "ex02",
   "version": "1.0.0",
-  "description": "the usage of express is justify because its pamp but for this thing",
+  "description": "xmlhttprequest to simulate the builtin-functions in the browser",
   "main": "print_get.js",
   "scripts": {
     "test": "node print_get.js"
@@ -9,6 +9,6 @@
   "author": "gmalpart",
   "license": "ISC",
   "devDependencies": {
-    "express": "^4.16.3"
+    "xmlhttprequest": "^1.8.0"
   }
 }

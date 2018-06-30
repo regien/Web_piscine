@@ -1,15 +1,22 @@
-//var XMLHttpRequest = require("xmlhttprequest").XMLHttpRequest;
-//var xhr = new XMLHttpRequest();
+var express = require('express');
+var app = express();
 
 
-var $_GET = new Array();
-function GET() {
-		var pendejada = "?maria=lapendejada&raul=lafiera"
-		var url = pendejada.replace("?", "").split("&");
-		for (var index = 0; index < url.length; index++) {
-				var value = url[index].split("=");
-				$_GET[value[0]] = value[1];
+app.get('/', function(req, res) {
+	var		keys = Object.keys(req.query);
+
+	if (keys.length != 0) {
+		let		i;
+		let		holder = "";
+		for (i = 0; i < keys.length; ++i) {
+			holder = holder + (keys[i] + "=" + req.query[keys[i]] + '\n');
 		}
-}
-GET();
-console.log($_GET);
+		res.send(holder);
+	}
+	res.end();
+});
+
+
+app.listen(8100, function() {
+	console.log("server listen in port 8100");
+});
