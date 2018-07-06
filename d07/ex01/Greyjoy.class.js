@@ -14,7 +14,4 @@ function Euron() {
     return child;
 }
 
-var pendejo = new Euron();
-
-pendejo.annonceMotto();
-console.log(pendejo.familyMotto);
+module.exports = Euron;
