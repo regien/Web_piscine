@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Calculadora</title>
+</head>
+<style>
+    body {
+        background-color: pink;
+    }
+
+    .container {
+        width: 100%;
+        height: 100%;
+    }
+
+    .calculadora-container {
+        display: block;
+        width: 500px;
+        background-color: lightgrey;
+        align-self: center;
+    }
+
+    .title-calculatpr {
+        text-align: center;
+    }
+</style>
+<script>
+    var calculator;
+    var first_box;
+    var second_box;
+    var operator;
+
+    window.onload = function () {
+        calculator = document.querySelector("#calculator");
+        first_box = document.querySelector("#first");
+        second_box = document.querySelector("#second");
+        operator = document.querySelector("#operators");
+        calculator.addEventListener("submit", submit);
+        setInterval("alert('Please, use me...')", 30000);
+        console.log("testing");
+    }
+
+    function valid_num(first, second) {
+        return (first == parseInt(first, 10) && first >= 0 && second == parseInt(second, 10) && second >= 0);
+    }
+
+    function result(answer) {
+        console.log(answer);
+        alert(answer);
+    }
+
+    function submit(event) {
+        event.preventDefault();
+        var first = Number(first_box.value);
+        var second = Number(second_box.value);
+        if (!valid_num(first_box.value, second_box.value)) {
+            alert("Error :(");
+            return false;
+        }
+        console.log(operator.value);
+
+        if (operator.value === "add") {
+            result(first + second);
+        } else if (operator.value === 'subs') {
+            result(first - second);
+        } else if (operator.value === "mult") {
+            result(first * second);
+        } else if (operator.value === "divid") {
+            if (second === 0)
+                result("It's over 9000!");
+            else
+                result(first / second);
+        } else if (operator.value === "modu") {
+            if (second === 0)
+                result("It's over 9000!");
+            else
+                result(first % second);
+        } else {
+            result("operation not found");
+        }
+    } 
+</script>
+
+<body>
+    <div class="container">
+        <div class="calculadora-container">
+            <div class="title-calculator">
+                <h1>Calculator</h1>
+            </div>
+            <form action="" id="calculator">
+                <input type="text" id="first">
+                <select id="operators">
+                    <option value="add">+</option>
+                    <option value="subs">-</option>
+                    <option value="mult">*</option>
+                    <option value="divid">/</option>
+                    <option value="modu">%</option>
+                </select>
+                <input type="text" id="second">
+                <input type="submit" id="submit" value="Try Me!">
+            </form>
+        </div>
+    </div>
+</body>
+</html>
