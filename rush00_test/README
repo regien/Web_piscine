@@ -1,0 +1,10 @@
+Actual version is not compiling for a problem with a router
+and mongoDB needs to set up manually everytime you change computer
+		-- hopefully is in app.js
+
+
+TODO:
+	- Add and script that set everything for you if mongoDB exist in the
+	computer
+	
+	- GetElementByid - looking inside arrays of objects
