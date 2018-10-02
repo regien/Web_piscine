@@ -1,3 +1,4 @@
+#!/usr/bin/env node
 
 function	check_for_chars(str) {
 	var		i;

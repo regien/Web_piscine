@@ -1,3 +1,5 @@
+#!/usr/bin/env node
+
 let i = -1;
 var buffer = "";
 

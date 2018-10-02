@@ -1,3 +1,5 @@
+#!/usr/bin/env node
+
 const	ft_split = (str) => {
 	let	holder = [];
 	let buffer = str.trim().split(/\s+/);
