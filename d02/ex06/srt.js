@@ -2,13 +2,13 @@ let	fs = require('fs');
 let	args = process.argv;
 
 function cleanArray(actual) {
-  var newArray = new Array();
-  for (var i = 0; i < actual.length; i++) {
-    if (actual[i]) {
-      newArray.push(actual[i]);
-    }
-  }
-  return newArray;
+	var newArray = new Array();
+	for (var i = 0; i < actual.length; i++) {
+		if (actual[i]) {
+			newArray.push(actual[i]);
+		}
+	}
+	return newArray;
 }
 
 function	return_objetctsplited(file, resolve) {
@@ -70,7 +70,7 @@ function	sort_by_sec(resolved) {
 			temp = resolved[i].sec_start;
 			resolved[i].sec_start = resolved[i + 1].sec_start;
 			resolved[i + 1].sec_start = temp;
-			
+
 			temp = resolved[i].word;
 			resolved[i].word = resolved[i + 1].word;
 			resolved[i + 1].word = temp;
@@ -100,11 +100,16 @@ if (args.length != 3)
 
 let		resolved = [];
 
-var data = fs.readFileSync(args[2].toString());
-data = data.toString().split('\n');
-data = cleanArray(data);
+try {
+	var data = fs.readFileSync(args[2].toString());
+	data = data.toString().split('\n');
+	data = cleanArray(data);
 
-return_objetctsplited(data, resolved);
-getting_values_to_compare(resolved);
-sort_by_sec(resolved);
-print_result(resolved);
+	return_objetctsplited(data, resolved);
+	getting_values_to_compare(resolved);
+	sort_by_sec(resolved);
+	print_result(resolved);
+} catch(err) {
+	console.log("invalid argument or file doesn't exist");
+	process.exit();
+}

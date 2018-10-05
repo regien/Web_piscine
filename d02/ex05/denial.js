@@ -12,7 +12,7 @@ function	split_file(data, holder) {
 	let		temp = {};
 	let		spliter;
 
-// there can be some error checking like if spliter.length != 5
+	// there can be some error checking like if spliter.length != 5
 	for (i = 1; data[i]; ++i) {
 		temp = {};
 		spliter = data[i].split(';');
@@ -34,13 +34,13 @@ function	split_file(data, holder) {
 }
 
 function cleanArray(actual) {
-  var newArray = new Array();
-  for (var i = 0; i < actual.length; i++) {
-	if (actual[i]) {
-	  newArray.push(actual[i]);
+	var newArray = new Array();
+	for (var i = 0; i < actual.length; i++) {
+		if (actual[i]) {
+			newArray.push(actual[i]);
+		}
 	}
-  }
-  return newArray;
+	return newArray;
 }
 
 
@@ -80,20 +80,24 @@ function match_my_keyword(keyword) {
 if (args.length != 4)
 	process.exit();
 
-var	data = fs.readFileSync(args[2].toString());
-var	default_word = args[3].trim();
-var	general = [];
+try {
+	var	data = fs.readFileSync(args[2].toString());
+	var	default_word = args[3].trim();
+	var	general = [];
 
-if ((index_keyword = match_my_keyword(default_word)) <= -1) {
-	process.stdout.write("Bad keyword\n");
-	process.exit();
+	if ((index_keyword = match_my_keyword(default_word)) <= -1) {
+		process.stdout.write("Bad keyword\n");
+		process.exit();
+	}
+	data = data.toString().split('\n');
+	data = cleanArray(data);
+
+	if ((split_file(data, general)) == 0) {
+		process.stdout.write("Error in the file\n");
+		process.exit();
+	}
+
+	display_prompt();
+} catch(err) {
+	console.log("can't open file or unexpected error happen");
 }
-data = data.toString().split('\n');
-data = cleanArray(data);
-
-if ((split_file(data, general)) == 0) {
-	process.stdout.write("Error in the file\n");
-	process.exit();
-}
-
-display_prompt();
