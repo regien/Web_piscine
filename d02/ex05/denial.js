@@ -1,5 +1,11 @@
 let	fs = require('fs');
 let	args = process.argv;
+var	name = [];
+var	surname = [];
+var	mail = [];
+var	ip = [];
+var	pseudo = [];
+var	index_keyword;
 
 function	split_file(data, holder) {
 	let		i;
@@ -17,7 +23,12 @@ function	split_file(data, holder) {
 		temp.mail = spliter[2];
 		temp.ip = spliter[3];
 		temp.pseudo = spliter[4];
-		holder.push(temp);
+		name[spliter[index_keyword]] = temp.name;
+		surname[spliter[index_keyword]] = temp.surname;
+		mail[spliter[index_keyword]] = temp.mail;
+		ip[spliter[index_keyword]] = temp.ip;
+		pseudo[spliter[index_keyword]] = temp.pseudo;
+		holder[spliter[index_keyword]] = temp;
 	}
 	return (1);
 }
@@ -53,16 +64,16 @@ process.stdin.on('data', function(data) {
 
 function match_my_keyword(keyword) {
 	if (keyword === "name")
-		return (1);
+		return (0);
 	else if (keyword === "surname")
 		return (1);
 	else if (keyword === "mail")
-		return (1);
+		return (2);
 	else if (keyword === "ip")
-		return (1);
+		return (3);
 	else if (keyword === "pseudo")
-		return (1);
-	return (0);
+		return (4);
+	return (-1);
 }
 
 
@@ -71,16 +82,16 @@ if (args.length != 4)
 
 var	data = fs.readFileSync(args[2].toString());
 var	default_word = args[3].trim();
-var	holder = [];
+var	general = [];
 
-if (!match_my_keyword(default_word)) {
+if ((index_keyword = match_my_keyword(default_word)) <= -1) {
 	process.stdout.write("Bad keyword\n");
 	process.exit();
 }
 data = data.toString().split('\n');
 data = cleanArray(data);
 
-if ((split_file(data, holder)) == 0) {
+if ((split_file(data, general)) == 0) {
 	process.stdout.write("Error in the file\n");
 	process.exit();
 }

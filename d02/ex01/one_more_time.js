@@ -157,11 +157,3 @@ if (!(count_island_spaces(str)) || !(match_items(ft_split(str), objeto))) {
 
 date_final = new Date(objeto.year, objeto.month, objeto.n_day, objeto.time[0], objeto.time[1], objeto.time[2], 0);
 process.stdout.write((date_final.getTime() / 1000) + '\n');
-
-
-
-
-
-
-
-
