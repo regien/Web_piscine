@@ -1,5 +1,6 @@
 <?php
-	session_start();
+session_start();
+	$_SESSION['testing'] = "vaina";
 	if ($_GET['login'] && $_GET['passwd'] && $_GET['submit'] && $_GET['submit'] === "OK") {
 			$_SESSION['login'] = $_GET['login'];
 			$_SESSION['passwd'] = $_GET['passwd'];
