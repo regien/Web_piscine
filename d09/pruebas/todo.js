@@ -1,6 +1,10 @@
 var ft_list;
 var cookie = [];
 
+/*
+** test file not ready to submit
+*/
+
 window.onload = function () {
     document.querySelector("#new").addEventListener("click", newTodo);
     ft_list = document.querySelector("#ft_list");
